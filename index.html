@@ -4,16 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Perceptron</title>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css"> -->
+    <title>Basic Maze Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="container">
+<body>
+    <div id="topWrapper">
+        <h2>Maze Generator</h2>
+        <div class="row valign-wrapper">
+            <div class="col m8">
+                <blockquote>Uses a depth-first search algorithm with recursive backtracking.
+                    <a href="https://github.com/cahilfoley">@cahilfoley</a>
+                </blockquote>
+            </div>
+            <div id="restartWrapper" class="col m4">
+                <a id="restart" class="waves-effect waves-light btn">
+                    <i class="material-icons left">refresh</i>Restart</a>
+
+            </div>
+        </div>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.min.js"></script>
-    <script type="module" src="./entry.mjs"></script>
+    <script type="module" src="entry.mjs"></script>
 </body>
 
 </html>

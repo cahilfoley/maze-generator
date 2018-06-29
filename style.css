@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Material+Icons');
+
+html,
+body {
+  background: #e2e1e0;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
+
+#restartWrapper {
+  text-align: right;
+}
+
+#mainCanvas {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+#topWrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+}
+
+#topWrapper blockquote {
+  text-align: left;
+}

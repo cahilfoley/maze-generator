@@ -5,8 +5,12 @@ const scale = 20
 let grid
 
 window.setup = () => {
-  createCanvas(size, size)
+  const renderer = createCanvas(size, size)
+  renderer.canvas.id = 'mainCanvas'
   grid = new Grid(size, scale)
+
+  loop()
+  document.getElementById('restart').addEventListener('click', window.setup)
 }
 
 window.draw = () => {
