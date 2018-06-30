@@ -23,16 +23,17 @@ export class Cell {
     const y2 = y1 + scale
 
     noFill()
-    stroke(255)
+    stroke(0)
+    strokeWeight(2)
     if (sides.top) line(x1, y1, x2, y1)
     if (sides.right) line(x2, y1, x2, y2)
     if (sides.bottom) line(x1, y2, x2, y2)
     if (sides.left) line(x1, y1, x1, y2)
 
     if (this.visited) {
-      fill(0, 255, 0, 100)
+      fill(255)
       noStroke()
-      rect(x1, y1, scale, scale)
+      rect(x1 + 1, y1 + 1, scale - 2, scale - 2)
     }
   }
 

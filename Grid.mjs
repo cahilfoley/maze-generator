@@ -18,6 +18,10 @@ export class Grid {
     this.stack = []
     this.current = this.cells[0][0]
     this.current.visited = true
+
+    // Set the entrance and exit
+    this.cells[0][0].sides.top = false
+    this.cells[this.cols - 1][this.rows - 1].sides.bottom = false
   }
 
   draw() {
@@ -55,9 +59,12 @@ export class Grid {
         next.sides.right = false
       }
 
+      current.draw()
+      next.visited = true
+      next.draw()
+
       stack.push(current)
       this.current = next
-      this.current.visited = true
     } else if (stack.length) {
       this.current = stack.pop()
     } else {

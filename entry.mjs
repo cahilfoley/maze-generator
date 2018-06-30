@@ -1,11 +1,12 @@
 import Grid from './Grid.mjs'
 
 const size = 600
-const scale = 20
+const scale = 40
 let grid
 
 window.setup = () => {
-  const renderer = createCanvas(size, size)
+  frameRate(60)
+  const renderer = createCanvas(size + 2, size + 2)
   renderer.canvas.id = 'mainCanvas'
   grid = new Grid(size, scale)
 
@@ -14,7 +15,8 @@ window.setup = () => {
 }
 
 window.draw = () => {
-  background(0)
+  translate(1, 1)
+  background(255)
   grid.next()
   grid.draw()
 }
