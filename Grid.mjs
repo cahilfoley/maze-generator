@@ -1,6 +1,11 @@
 import Cell from './Cell.mjs'
 
-export class Grid {
+/**
+ * The base class for all grids
+ * @param {number} size The size of the grid in pixels
+ * @param {number} scale The size of each cell in pixels
+ */
+class Grid {
   constructor(size, scale) {
     this.size = size
     this.scale = scale
@@ -15,67 +20,58 @@ export class Grid {
       }
     }
 
-    this.stack = []
-    this.current = this.cells[0][0]
-    this.current.visited = true
-
     // Set the entrance and exit
     this.cells[0][0].sides.top = false
     this.cells[this.cols - 1][this.rows - 1].sides.bottom = false
   }
 
+  /**
+   * Calls the draw method on each cell
+   */
   draw() {
     this.cells.forEach(col => {
       col.forEach(cell => {
         cell.draw()
       })
     })
-    this.stack.forEach(cell => {
-      cell.highlight()
-    })
   }
 
-  next() {
-    const { current, stack } = this
-    if (current.hasUnvisitedNeighbours) {
-      const next = random(current.unvisitedNeighbours)
-
-      // Remove sides between the two cells
-      if (current.y > next.y) {
-        // current is below next
-        current.sides.top = false
-        next.sides.bottom = false
-      } else if (current.x < next.x) {
-        // current is left of next
-        current.sides.right = false
-        next.sides.left = false
-      } else if (current.y < next.y) {
-        // current is above next
-        current.sides.bottom = false
-        next.sides.top = false
-      } else {
-        // current is right of next
-        current.sides.left = false
-        next.sides.right = false
-      }
-
-      current.draw()
-      next.visited = true
-      next.draw()
-
-      stack.push(current)
-      this.current = next
-    } else if (stack.length) {
-      this.current = stack.pop()
-    } else {
-      noLoop()
-    }
-  }
-
+  /**
+   * Lookup a cell
+   * @param  {number} x The column index
+   * @param  {number} y The row index
+   * @return {Cell|undefined} The cell if it exists or undefined if not
+   */
   getCell(x, y) {
     const { cols, rows } = this
     if (x < 0 || x > cols - 1 || y < 0 || y > rows - 1) return undefined
     return this.cells[x][y]
+  }
+
+  /**
+   * Remove the borders seperating two cells
+   * @param  {Cell} a The first cell to join
+   * @param  {Cell} b The second cell to join
+   */
+  joinCells(a, b) {
+    // Remove sides between the two cells
+    if (a.y > b.y) {
+      // a is below b
+      a.sides.top = false
+      b.sides.bottom = false
+    } else if (a.x < b.x) {
+      // a is left of b
+      a.sides.right = false
+      b.sides.left = false
+    } else if (a.y < b.y) {
+      // a is above b
+      a.sides.bottom = false
+      b.sides.top = false
+    } else {
+      // a is right of b
+      a.sides.left = false
+      b.sides.right = false
+    }
   }
 }
 

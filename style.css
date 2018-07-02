@@ -9,6 +9,16 @@ body {
   text-align: center;
 }
 
+#homeButton {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+}
+
+a.collection-item:hover {
+  background: rgba(0, 0, 0, 0.08) !important;
+}
+
 #restartWrapper {
   text-align: right;
 }
