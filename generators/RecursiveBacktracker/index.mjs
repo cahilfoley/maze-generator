@@ -1,4 +1,4 @@
-import Grid from '../Grid.mjs'
+import Grid from '../../Grid.mjs'
 
 class RecursiveBacktracker extends Grid {
   constructor(size, scale) {

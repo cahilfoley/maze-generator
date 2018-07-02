@@ -1,5 +1,5 @@
-import Grid from '../Grid.mjs'
-import { shuffle } from '../helpers.mjs'
+import Grid from '../../Grid.mjs'
+import { shuffle } from '../../helpers.mjs'
 
 class Kruskals extends Grid {
   constructor(size, scale) {
