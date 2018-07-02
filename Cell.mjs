@@ -46,12 +46,16 @@ class Cell {
   /**
    * Highlight the cell in red
    */
-  highlight() {
+  highlight(gradual) {
     const { x, y, scale } = this
     const x1 = x * scale
     const y1 = y * scale
 
-    fill(255, 0, 0, 100)
+    if (gradual) {
+      fill(255, 0, 0, 25)
+    } else {
+      fill(255, 0, 0, 100)
+    }
     noStroke()
     rect(x1, y1, scale, scale)
   }

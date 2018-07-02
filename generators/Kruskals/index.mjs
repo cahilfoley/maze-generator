@@ -32,6 +32,12 @@ class Kruskals extends Grid {
   }
 
   next() {
+    if (this.currentWall >= this.walls.length ) {
+      window.stopping = true
+      setTimeout(noLoop, 2000)
+      return
+    }
+    
     const wall = this.walls[this.currentWall++]
     const current = wall.cell
     const next =
@@ -44,14 +50,8 @@ class Kruskals extends Grid {
       this.joinSets(current, next)
     }
 
-    if (this.currentWall >= this.walls.length) {
-      background(255)
-      this.draw()
-      return noLoop()
-    }
-
-    current.highlight()
-    next.highlight()
+    current.highlight(false)
+    next.highlight(false)
   }
 
   joinSets(a, b) {

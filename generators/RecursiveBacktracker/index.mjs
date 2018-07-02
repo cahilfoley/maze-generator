@@ -12,7 +12,7 @@ class RecursiveBacktracker extends Grid {
   draw() {
     super.draw()
     this.stack.forEach(cell => {
-      cell.highlight()
+      cell.highlight(true)
     })
   }
 
@@ -33,9 +33,8 @@ class RecursiveBacktracker extends Grid {
     } else if (stack.length) {
       this.current = stack.pop()
     } else {
-      background(255)
-      this.draw()
-      noLoop()
+      window.stopping = true
+      setTimeout(noLoop, 2000)
     }
   }
 }

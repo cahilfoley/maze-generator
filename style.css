@@ -11,7 +11,9 @@ body {
 
 #homeButton {
   position: fixed;
-  top: 15px;
+  height: 40px;
+  line-height: 40px;
+  top: 20px;
   left: 15px;
 }
 
