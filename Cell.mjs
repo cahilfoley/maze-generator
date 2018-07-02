@@ -1,4 +1,13 @@
-export class Cell {
+import Grid from './Grid.mjs'
+
+/**
+ * A single cell of a grid
+ * @name Cell
+ * @arg  {number} x The column index
+ * @arg  {number} y The row index
+ * @arg  {Grid} grid The parent grid
+ */
+class Cell {
   constructor(x, y, grid) {
     this.x = x
     this.y = y
@@ -15,6 +24,9 @@ export class Cell {
     }
   }
 
+  /**
+   * Draw the cell and it's sides
+   */
   draw() {
     const { x, y, scale, sides } = this
     const x1 = x * scale
@@ -29,14 +41,11 @@ export class Cell {
     if (sides.right) line(x2, y1, x2, y2)
     if (sides.bottom) line(x1, y2, x2, y2)
     if (sides.left) line(x1, y1, x1, y2)
-
-    if (this.visited) {
-      fill(255)
-      noStroke()
-      rect(x1 + 1, y1 + 1, scale - 2, scale - 2)
-    }
   }
 
+  /**
+   * Highlight the cell in red
+   */
   highlight() {
     const { x, y, scale } = this
     const x1 = x * scale
@@ -47,10 +56,18 @@ export class Cell {
     rect(x1, y1, scale, scale)
   }
 
+  /**
+   * All neighbouring cells that have not been visited
+   * @type {Cell[]}
+   */
   get unvisitedNeighbours() {
     return this.neighbours.filter(cell => cell && !cell.visited)
   }
 
+  /**
+   * All neighbouring cells
+   * @type {Cell[]}
+   */
   get neighbours() {
     const { grid, x, y } = this
     return [
@@ -61,6 +78,10 @@ export class Cell {
     ]
   }
 
+  /**
+   * If the cell has unvisited neighbours
+   * @type {boolean}
+   */
   get hasUnvisitedNeighbours() {
     return this.unvisitedNeighbours.length > 0
   }

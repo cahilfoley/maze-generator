@@ -2,7 +2,7 @@
 
 An example of a simple maze generator built with the awesome [p5.js library](https://p5js.org/).
 
-**Live Demo** https://cahilfoley.github.io/maze-generator/
+**Live Demo** [https://cahilfoley.github.io/maze-generator/](https://cahilfoley.github.io/maze-generator/)
 
 This example uses a depth-first search pattern and implements recursive backtracking for 100% coverage of the grid.
 

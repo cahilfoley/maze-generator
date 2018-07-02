@@ -1,8 +1,15 @@
-import Grid from './Grid.mjs'
+const Grid = window.Grid
 
 const size = 600
 const scale = 40
 let grid
+
+window.title = Grid.title
+const title = document.getElementById('title')
+title.innerHTML = Grid.title
+
+const description = document.getElementById('description')
+description.innerHTML = Grid.description
 
 window.setup = () => {
   frameRate(60)
@@ -16,7 +23,7 @@ window.setup = () => {
 
 window.draw = () => {
   translate(1, 1)
-  background(255)
-  grid.next()
+  background(255, 255, 255, 50)
   grid.draw()
+  grid.next()
 }

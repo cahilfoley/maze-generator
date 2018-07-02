@@ -4,32 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Basic Maze Generator</title>
+    <title>Maze Generating Algorithms</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div id="topWrapper">
-        <h2>Maze Generator</h2>
-        <div class="row valign-wrapper">
-            <div class="col m8">
-                <blockquote>Uses a depth-first search algorithm with recursive backtracking.
-                    <a href="https://github.com/cahilfoley">@cahilfoley</a>
-                </blockquote>
-            </div>
-            <div id="restartWrapper" class="col m4">
-                <a id="restart" class="waves-effect waves-light btn">
-                    <i class="material-icons left">refresh</i>Restart</a>
-
+    <div class="container">
+        <h2 id="title">Maze Generating Algorithms</h2>
+        <div class="footer-copyright"></div>
+        <blockquote>
+            A collection of maze generating algorithms, implemented in javascript with the awesome
+            <a href='https://p5js.org/'>p5.js library</a>.
+        </blockquote>
+        <div class="card">
+            <div class="collection">
+                <a href="/generators/Kruskals" class="collection-item">Kruskal's Algorithm</a>
+                <a href="/generators/RecursiveBacktracker" class="collection-item">Recursive Backtracker</a>
             </div>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.min.js"></script>
-    <script type="module" src="entry.mjs"></script>
+    <p>
+        Created by
+        <a class="red-text" href="https://github.com/cahilfoley">@cahilfoley</a>
+    </p>
 </body>
 
 </html>
